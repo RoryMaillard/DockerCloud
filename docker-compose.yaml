@@ -1,1 +1,80 @@
-version: '3'
+version: '1'
+services:
+
+  seed:
+    build: ./seed-data
+    depends_on:
+      - nginx
+    networks:
+      - front-tier
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - vote
+    networks:
+      - front-tier
+
+  vote:
+    build: ./vote
+    depends_on:
+      - redis
+    ports:
+      - "5000:5000"
+    networks:
+      - back-tier
+      - front-tier
+
+  redis:
+    image: "redis:latest"
+    volumes:
+      - ./healthchecks:/healthchecks
+    depends_on:
+      - worker
+    networks:
+      - back-tier
+    healthcheck:
+      test: [ "CMD", "/bin/bash", "/healthchecks/redis.sh" ]
+
+  worker:
+    build: ./worker
+    depends_on:
+      - postgres
+    networks:
+      - back-tier
+
+  postgres:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./healthchecks:/healthchecks
+    ports:
+      - "5432:5432"
+    networks:
+      - back-tier
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db-data
+    command: [ "/bin/bash", "-c", "apt-get update && apt-get install -y curl && /healthchecks/postgres.sh" ]
+    healthcheck:
+      test: ["CMD", "/bin/bash", "/healthchecks/postgres.sh"]
+
+  result:
+    build: ./result
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    networks:
+      - back-tier
+      - front-tier
+
+networks:
+  front-tier:
+  back-tier:
+
+volumes:
+  db-data:
