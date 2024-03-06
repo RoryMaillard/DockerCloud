@@ -13,15 +13,15 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - vote
+      - vote1
+      - vote2
       - redis
       - worker
       - result
     networks:
       - front-tier
 
-
-  vote:
+  vote1:
     build: ./vote
     depends_on:
       - redis
@@ -30,7 +30,18 @@ services:
     networks:
       - back-tier
       - front-tier
-
+   
+  vote2:
+    build: ./vote
+    depends_on:
+      - redis
+    ports:
+      - "5001:5000"
+    networks:
+      - back-tier
+      - front-tier
+      
+   
   redis:
     image: "redis:latest"
     volumes:
