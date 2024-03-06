@@ -50,8 +50,6 @@ services:
       - worker
     networks:
       - back-tier
-    healthcheck:
-      test: [ "CMD", "/bin/bash", "/healthchecks/redis.sh" ]
 
   worker:
     build: ./worker
@@ -71,8 +69,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
-    healthcheck:
-      test: ["CMD", "apt-get update && apt-get install -y curl && /healthchecks/postgres.sh"]
 
   result:
     build: ./result
