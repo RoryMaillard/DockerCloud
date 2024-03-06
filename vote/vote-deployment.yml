@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote
+spec:
+  selector:
+    matchLabels:
+      app: vote
+  replicas: 3
+  template:
+    metadata:
+      name: vote
+      labels:
+        app: vote
+        back-tier: "true"
+        front-tier: "true"
+    spec:
+      containers:
+        - image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/vote
+          name: vote
+          ports:
+            - containerPort: 5000
+              hostPort: 5000
+              protocol: TCP
