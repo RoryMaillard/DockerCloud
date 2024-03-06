@@ -14,8 +14,11 @@ services:
       - "80:80"
     depends_on:
       - vote
+      - redis
+      - worker
     networks:
       - front-tier
+
 
   vote:
     build: ./vote
@@ -41,33 +44,31 @@ services:
   worker:
     build: ./worker
     depends_on:
-      - postgres
+      - db
     networks:
       - back-tier
 
-  postgres:
+  db:
     image: postgres
     volumes:
       - db-data:/var/lib/postgresql/data
       - ./healthchecks:/healthchecks
-    ports:
-      - "5432:5432"
     networks:
       - back-tier
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: db-data
-    command: [ "/bin/bash", "-c", "apt-get update && apt-get install -y curl && /healthchecks/postgres.sh" ]
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     healthcheck:
-      test: ["CMD", "/bin/bash", "/healthchecks/postgres.sh"]
+      test: ["CMD", "apt-get update && apt-get install -y curl && /healthchecks/postgres.sh"]
 
   result:
     build: ./result
     ports:
       - "4000:4000"
     depends_on:
-      - postgres
+      - db
+      - seed
     networks:
       - back-tier
       - front-tier
