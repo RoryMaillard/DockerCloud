@@ -16,6 +16,7 @@ services:
       - vote
       - redis
       - worker
+      - result
     networks:
       - front-tier
 
@@ -68,7 +69,6 @@ services:
       - "4000:4000"
     depends_on:
       - db
-      - seed
     networks:
       - back-tier
       - front-tier
