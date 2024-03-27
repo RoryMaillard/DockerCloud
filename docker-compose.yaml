@@ -17,9 +17,6 @@ services:
     depends_on:
       - vote
       - vote2
-      - redis
-      - worker
-      - result
     networks:
       - front-tier
 
@@ -53,8 +50,6 @@ services:
       - worker
     networks:
       - back-tier
-    healthcheck:
-      test: [ "CMD", "/bin/bash", "/healthchecks/redis.sh" ]
 
   worker:
     image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/worker
@@ -75,8 +70,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
-    healthcheck:
-      test: ["CMD", "apt-get update && apt-get install -y curl && /healthchecks/postgres.sh"]
 
   result:
     image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/result
