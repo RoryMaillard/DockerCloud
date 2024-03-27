@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "terraform-maillard-frossard",
+  "private_key_id": "59f129e21744629f819510edb1dc5ee1af059497",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDgZ9W4qzmIaY15\nEQoxQ7Jm0I2trPT354N3FHI5PJZmwEoGIGKfMDMCGe0ebQsJoT+kQNI7SkS4MuHK\n94XukGXz4Let3WYafu1fjevXeL7XQ0qhcIFyvCXVP37cu+OY8Z9Fy/Lp4X+UEt0l\nRKPOkRaDMgNxtXT7G8bYclD0Rpkv7N9bc4xpHWTI7R+e6eAg8LlVOW/dNLcNYUea\n7rjBXZiE4yysk+9RsE7dxnOMVRB7lbj8bzZnmMtkMCEJtYGux9C+IWZmxqUuauXj\nvXQjvsCL/hVr6wF2dTMpwFTG4/pOnGpdSHoYCLy8Bw3tJePlx9S2WJjwe8mmgGz1\nsogzCfXlAgMBAAECggEAO6h/MhQbPH/LQ6dbDVPRBvJk6Ao2Kf3bfnnqD/tihLiU\nNWLAtU9sEB/yYQdeStYahEFTYr3Q3SNx0bLSYWT0JczVKBzW+y5JTwD89RC9s57J\nJXgygd0xNasmv+oXjN6XmEerMbBoaWZGcpT383+w+3n9Xmp+Sg/NYlep2/c03H9e\nQ36fOZ4v/hAYo5HGn81fjmlM5cz9vv78SUqeYAqYh86bzo2RN288kC65MWFDB+CU\n638TpxQ6ViFTrfNBYGIWDwDtttwdaCPEo7qBo8kNwoPALogOk/TC5ZHg+s+uIzvC\nGjn1nNewdu0VFJxC0/UVAwCZbJqzscHt8qriWOMwVQKBgQDyC8p5ByJFBdZ14Uwv\npoHEwKROCJTQvkwRKKdi+Ezy7WhPLi+7qn4ANdtzX+UAQmcLsb/TDrmHIiBCl9Wr\nSfq6NBZpUF1Or56KkeqBeun55hzIGyAih6y9GxW8dzU9V06oiHHHragsCFX8rtuY\nuZ8vaSBk0L2tACEkDbvGCqHoYwKBgQDtV7MG8uEjMlRhA5+CK+Iso2F3W7r8ZJzE\nqHQ2jXhBSjTMhUqu2xJVt5squUA7HF/m9iPuuYpkeZt41k2xovnd0nOI+FoGC9I8\nvFkEo8Q5MB8A2RGO7Y77wr/zae3+Q5Ppj+Wr9BPgdl5q+rYIWDIYCi4aZKboLHQQ\nuaN94b0nFwKBgQCZoQxBZ1rEDqGBrp+JuxiwxklDUkUKfU6QsYoU0l8c7b0ATON1\nLRDOl2CTyXDzijIXhRmpH7Z4ZBuvyOmQz+L5Xug+rgibUfLCJz1+M4Lg38Ky7Cyo\nXg8w9EkGl29OYOUHKZt2Tu3oDN5vBJlTRbYZBJPQCYHqlaNzW9gsKkF72wKBgGWI\nUunyFSX9beNirWX+Z+84pYVuFHvMftQSTETaGEu19whXLS/IP/uzZAnO3g9rgAtJ\n2O1TKkT5UO1MoEgRtFqUoSBDPh/ABtw8psg5VsQwNdMjCUPflH9XPM5gzpMrTadp\nC5OYArjPamzRe/Xt5OAr2rUnwc8o1S4ifDJp04VZAoGAEoWK+3cCQOFoIFMe8X0I\nVxoi3/ZwBPUP3pnZwM7V4P4qtb6awd/SvTAIwYhKo9qu5nbXe2dUKju28ShkG+DT\nNWJqP6M+LxGN1m9LvV/P+Gp0kEnzQG3gUG8s64kK2bgoeeVZxap2FcdyghRpXnyJ\n3lMsEwxlOurjnCwAcahyJl8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "terraform-maillard-frossard@terraform-maillard-frossard.iam.gserviceaccount.com",
+  "client_id": "110371565248861496434",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform-maillard-frossard%40terraform-maillard-frossard.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
