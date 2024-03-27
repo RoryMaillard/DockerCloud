@@ -35,8 +35,8 @@ resource "docker_image" "nginx" {
 resource "docker_image" "redis" {
   name = "docker.io/redis:6.0.5"
 }
-resource "docker_image" "seed_data" {
-  name = "seed_data"
+resource "docker_image" "seed-data" {
+  name = "seed-data"
   build {
     context = "./seed-data/"
   }
@@ -108,9 +108,9 @@ resource "docker_container" "nginx_container" {
   }
 }
 
-resource "docker_container" "seed_data_container" {
-  name  = "seed_data_container"
-  image = docker_image.seed_data.name
+resource "docker_container" "seed-data-container" {
+  name  = "seed-data-container"
+  image = docker_image.seed-data.name
   env = [
     "GET_HOSTS_FROM=dns"
   ]
