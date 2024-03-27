@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  selector:
+    matchLabels:
+      app: worker
+  replicas: 1
+  template:
+    metadata:
+      name: worker
+      labels:
+        app: worker
+        back-tier: "true"
+    spec:
+      containers:
+        - image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/worker
+          name: worker
