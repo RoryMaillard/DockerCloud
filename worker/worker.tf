@@ -1,26 +1,26 @@
 resource "kubernetes_deployment_v1" "worker" {
   metadata {
-    name = "worker"
+    name = var.metadata_name
   }
   spec {
-    replicas = 1
+    replicas = var.replicas
     selector {
       match_labels = {
-        app = "worker"
+        app = var.label_app
       }
     }
     template {
       metadata {
-        name = "worker"
+        name = var.metadata_name
         labels = {
-          app = "worker"
+          app = var.label_app
           back-tier = "true"
         }
       }
       spec {
         container {
-          name  = "worker"
-          image = docker_image.worker.name
+          name  = var.container_name
+          image = var.container_image
         }
       }
     }

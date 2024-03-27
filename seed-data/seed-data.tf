@@ -1,17 +1,16 @@
 resource "kubernetes_job_v1" "seed-data" {
   metadata {
-    name = "seed-data"
+    name = var.metadata_name
   }
   spec {
     template {
       metadata {
-        name = "seed-data"
+        name = var.metadata_name
       }
       spec {
         container {
-          name  = "seed-data"
-          image = docker_image.seed-data.name
-
+          name  = var.container_name
+          image = var.container_image
         }
         restart_policy = "Never"
       }
