@@ -1,4 +1,4 @@
-#Projet UE-CLOUD Rory MAILLARD, Samuel FROSSARD
+# Projet UE-CLOUD Rory MAILLARD, Samuel FROSSARD
 
 Le projet est séparé dans des branches differentes qui correspondent aux différents rendus du projet.
 - La branche docker-compose pour la partie docker
