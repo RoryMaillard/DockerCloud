@@ -2,7 +2,6 @@ version: '1'
 services:
 
   seed:
-    image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/seed
     build: ./seed-data
     depends_on:
       - nginx
@@ -10,18 +9,16 @@ services:
       - front-tier
 
   nginx:
-    image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/nginx
     build: ./nginx
     ports:
       - "80:80"
     depends_on:
-      - vote
+      - vote1
       - vote2
     networks:
       - front-tier
 
-  vote:
-    image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/vote
+  vote1:
     build: ./vote
     depends_on:
       - redis
@@ -52,7 +49,6 @@ services:
       - back-tier
 
   worker:
-    image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/worker
     build: ./worker
     depends_on:
       - db
@@ -72,7 +68,6 @@ services:
       POSTGRES_DB: postgres
 
   result:
-    image: europe-west9-docker.pkg.dev/kubernetes-maillard-frossard/voting-images/result
     build: ./result
     ports:
       - "4000:4000"
