@@ -45,12 +45,12 @@ Enfin push les images sur le registry: <code> docker compose push </code>
 
 Il suffit maintenant de lancer les déploiements des services un par un:
 
-* <code> kubectl create -f /db/db-deployment.yml</code>
-* <code> kubectl create -f /worker/worker-deployment.yml</code>
-* <code> kubectl create -f /redis/redis-deployment.yml</code>
-* <code> kubectl create -f /vote/vote-deployment.yml</code>
-* <code> kubectl create -f /result/result-deployment.yml</code>
-* <code> kubectl create -f /seed-data/seed-data-job.yml</code>
+* <code> kubectl create -f db/db-deployment.yml</code>
+* <code> kubectl create -f worker/worker-deployment.yml</code>
+* <code> kubectl create -f redis/redis-deployment.yml</code>
+* <code> kubectl create -f vote/vote-deployment.yml</code>
+* <code> kubectl create -f result/result-deployment.yml</code>
+* <code> kubectl create -f seed-data/seed-data-job.yml</code>
 
 
 # Terraform avec Kubernetes
