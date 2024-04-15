@@ -23,7 +23,7 @@ Voici les étapes à suivre pour configurer un projet google cloud et s'authenti
     * <code> gcloud auth login </code> 
     * <code> gcloud config set project PROJECT-ID</code> 
     * <code> gcloud container clusters create NAME-CLUSTER --machine-type n1-standard-2 --num-nodes 3 --zone us-central1-c</code> 
-    * <code> gcloud container clusters get-credentials CLUSTER-NAME --region us-central1 --project PROJECT-ID</code> 
+    * <code> gcloud container clusters get-credentials CLUSTER-NAME --region us-central1-c --project PROJECT-ID</code> 
 Après cela, il devrait être possible d'exécuter des commandes kubectl sur le cluster GKE distant. 
 
 ### Push des images docker et authentification
@@ -45,9 +45,13 @@ Enfin push les images sur le registry: <code> docker compose push </code>
 
 Il suffit maintenant de lancer les déploiements des services un par un:
 
-* <code> kubectl create -f /db/db-deployment.yml</code>
-* <code> kubectl create -f /worker/worker-deployment.yml</code>
-* <code> kubectl create -f /redis/redis-deployment.yml</code>
-* <code> kubectl create -f /vote/vote-deployment.yml</code>
-* <code> kubectl create -f /result/result-deployment.yml</code>
-* <code> kubectl create -f /seed-data/seed-data-job.yml</code>
+* <code> kubectl create -f db/db-service.yml</code>
+* <code> kubectl create -f db/db-deployment.yml</code>
+* <code> kubectl create -f worker/worker-deployment.yml</code>
+* <code> kubectl create -f redis/redis-service.yml</code>
+* <code> kubectl create -f redis/redis-deployment.yml</code>
+* <code> kubectl create -f vote/vote-service.yml</code>
+* <code> kubectl create -f vote/vote-deployment.yml</code>
+* <code> kubectl create -f result/result-service.yml</code>
+* <code> kubectl create -f result/result-deployment.yml</code>
+* <code> kubectl create -f seed-data/seed-data-job.yml</code>
